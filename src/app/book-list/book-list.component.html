@@ -1,6 +1,6 @@
 <ul>
     <li *ngFor="let book of books">
-      <strong>{{ book.title }}</strong>
+      <a [routerLink]="['/book', book.id]"><strong>{{ book.title }}</strong></a>
       <div>Author: {{ book.authors?.[0]?.name || 'Unknown' }}</div>
       <div>Download count: {{ book.download_count }}</div>
       <div>Subjects: {{ book.subjects?.join(', ') }}</div>
