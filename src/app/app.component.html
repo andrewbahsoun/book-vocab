@@ -1,0 +1,13 @@
+<app-header></app-header>
+
+<app-search-bar (searchTextChanged)="onSearchTextEntered($event)"></app-search-bar>
+
+<ul>
+    <li *ngFor="let book of books">
+      <strong>{{ book.title }}</strong>
+      <div>Author: {{ book.authors?.[0]?.name || 'Unknown' }}</div>
+      <div>Download count: {{ book.download_count }}</div>
+      <div>Subjects: {{ book.subjects?.join(', ') }}</div>
+      <hr />
+    </li>
+  </ul>
