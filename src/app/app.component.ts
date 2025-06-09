@@ -1,13 +1,15 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { RouterOutlet } from '@angular/router';
+import { RouterLink, RouterOutlet } from '@angular/router';
 import { HeaderComponent } from "./header/header.component";
 import { SearchBarComponent } from './search-bar/search-bar.component';
+import { BookListComponent } from './book-list/book-list.component';
 import { BookSearchService } from './services/book-search.service';
+import { BookDetailsComponent } from "./book-details/book-details.component";
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet, HeaderComponent, SearchBarComponent, CommonModule],
+  imports: [ RouterLink, RouterOutlet, HeaderComponent, SearchBarComponent, CommonModule, BookListComponent, BookDetailsComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss'
 })
@@ -15,6 +17,8 @@ import { BookSearchService } from './services/book-search.service';
 export class AppComponent {
   title = 'gutendexA';
   books: any[] = [];
+  hasSearched = false;
+  loading = false;
 
   constructor(private bookSearchService: BookSearchService ) {}
 
@@ -29,10 +33,20 @@ export class AppComponent {
   }
 
   searchBooks(query: string) {
-    this.bookSearchService.searchBooks(query).subscribe((data) => {
-      this.books = data.results;
-      // handle the data as needed
+    this.loading = true;  // Start loading
+    this.bookSearchService.searchBooks(query).subscribe({
+      next: (data) => {
+        this.books = data.results;
+      },
+      error: (err) => {
+        // Optionally, handle error
+      },
+      complete: () => {
+        this.loading = false;  // End loading
+        this.hasSearched = true;
+      }
     });
   }
+  
 
 }
