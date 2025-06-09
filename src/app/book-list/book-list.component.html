@@ -4,6 +4,7 @@
       <div>Author: {{ book.authors?.[0]?.name || 'Unknown' }}</div>
       <div>Download count: {{ book.download_count }}</div>
       <div>Subjects: {{ book.subjects?.join(', ') }}</div>
+      <div>BookID: {{book.id}}</div>
       <hr />
     </li>
 </ul>

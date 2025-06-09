@@ -1,5 +1,13 @@
 
 <p>{{bookId}}</p>
 
+<div>Download count: {{ book?.download_count }}</div>
+
+<div *ngIf="book">
+    Text: {{book.formats['text/html']}}
+</div>
+
+<div>
+
 
 <a routerLink="/search">Back To Search</a>
