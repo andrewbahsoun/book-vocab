@@ -1,13 +1,11 @@
 
-<p>{{bookId}}</p>
 
-<div>Download count: {{ book?.download_count }}</div>
 
 <div *ngIf="book">
-    Text: {{book.formats['text/html']}}
+   <h2> <a href="{{book.formats['text/html']}}" target="_blank">{{book?.title}} </a></h2>
+<div>
+    <a routerLink="/search">Back To Search</a>
 </div>
 
-<div>
 
-
-<a routerLink="/search">Back To Search</a>
+<!-- </div>{{bookText}} <div> -->

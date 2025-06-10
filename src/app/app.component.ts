@@ -6,10 +6,11 @@ import { SearchBarComponent } from './search-bar/search-bar.component';
 import { BookListComponent } from './book-list/book-list.component';
 import { BookSearchService } from './services/book-search.service';
 import { BookDetailsComponent } from "./book-details/book-details.component";
+import { FooterComponent } from './footer/footer.component';
 
 @Component({
   selector: 'app-root',
-  imports: [ RouterLink, RouterOutlet, HeaderComponent, SearchBarComponent, CommonModule, BookListComponent, BookDetailsComponent],
+  imports: [RouterLink, RouterOutlet, HeaderComponent, SearchBarComponent, CommonModule, BookListComponent, BookDetailsComponent, FooterComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss'
 })
