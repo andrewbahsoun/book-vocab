@@ -1,0 +1,40 @@
+.hardest-words-container {
+  background: #f5f5fa;
+  padding: 1.5em;
+  border-radius: 10px;
+  margin: 2em 0;
+  max-width: 800px;
+}
+
+.words-grid, .word-row {
+  display: flex;
+  flex-wrap: wrap;
+  margin-bottom: 0.5em;
+}
+
+.word-item {
+  font-size: 1.05em;
+  margin: 0.15em 0.7em 0.15em 0;
+  padding: 0.3em 0.7em;
+  border-radius: 15px;
+  background: #f1f1f1;
+  font-family: monospace;
+}
+
+.word-top10 {
+  background: #3d3d3d;   /* Gold for top 10 */
+  color: #fff;
+  font-weight: bold;
+}
+.word-top30 {
+  background: #fd7979;   /* Light red */
+  color: #fff;
+}
+.word-top60 {
+  background: #ddd969;   /* Light green */
+  color: #fff;
+}
+.word-other {
+  background: #4dc378;   /* Dark gray */
+  color: #fff;
+}
