@@ -5,6 +5,10 @@
     <a routerLink="/search">Back To Search</a>
 </div>
 
+<div *ngIf="vocabLoading">
+  <em>Loading vocab words...</em>
+</div>
+
 <div *ngIf="analysisResult?.top_100_hardest?.length > 0" class="hardest-words-container">
     <h3>Top 100 Hardest Words</h3>
     <div *ngFor="let group of getGroupedWords(analysisResult.top_100_hardest, 10); let gi = index" class="word-row">

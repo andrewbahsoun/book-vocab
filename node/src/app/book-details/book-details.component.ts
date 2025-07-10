@@ -18,6 +18,7 @@ export class BookDetailsComponent implements OnInit {
   bookText: string = '';
   hasSearched = false;
   loading = false;
+  vocabLoading = true;
   analysisResult: any;
 
 
@@ -33,7 +34,9 @@ export class BookDetailsComponent implements OnInit {
     this.bookId = this.route.snapshot.paramMap.get('id');
     // Now you can use this.bookId to fetch details from your service/API
     this.getBook(this.bookId || '-1'); // default value -1
-    this.analyze(this.bookText);
+    if (this.bookText && this.bookText.trim().length > 0) {
+      this.analyze(this.bookText);
+    }
     
   }
 
@@ -68,6 +71,7 @@ export class BookDetailsComponent implements OnInit {
   analyze(text: string) {
     this.textAnalysis.analyzeText(text).subscribe(result => {
       this.analysisResult = result;
+      this.vocabLoading = false;
     });
   }
 
